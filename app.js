@@ -649,6 +649,25 @@ function openModal(idx){
     mLinkEl.href=isUmbrella?`https://github.com/${owner}`:`https://github.com/${o.github}`;
     mLinkEl.textContent=isUmbrella?'View GitHub Org →':'View Repository →';
   }
+  // Set ideas link
+  const mIdeasEl=document.getElementById('mIdeasLink');
+  if(mIdeasEl){
+    if(o.ideas && o.ideas !== 'No such link is found'){
+      mIdeasEl.href=o.ideas;
+      mIdeasEl.textContent='View Ideas List →';
+      mIdeasEl.style.display='inline-block';
+    } else {
+      mIdeasEl.style.display='none';
+    }
+  }
+  const mIdeasText=document.getElementById('mIdeasText');
+  if(mIdeasText){
+    if(o.ideas && o.ideas !== 'No such link is found'){
+      mIdeasText.style.display='none';
+    } else {
+      mIdeasText.style.display='block';
+    }
+  }
   updateModalCompareBtn();
   document.getElementById('modalBg').classList.add('open');
   document.body.style.overflow='hidden';
